@@ -1,6 +1,6 @@
-// NOTE: replace 'NvPY9M9MzFTARQ6M816YAzDJxZ72' with your Firebase auth user id (can be taken from Firebase)
+// NOTE: replace 'QgiDOlbyumVc0iItclkEdHZG7kN2' with your Firebase auth user id (can be taken from Firebase)
 export function seedDatabase(firebase) {
-  const firebaseAuthUserId = "NvPY9M9MzFTARQ6M816YAzDJxZ72"
+  const firebaseAuthUserId = "QgiDOlbyumVc0iItclkEdHZG7kN2"
   const users = [
     {
       userId: firebaseAuthUserId,
@@ -82,8 +82,8 @@ export function seedDatabase(firebase) {
             comment: "No está mal...",
           },
         ],
-        userLatitude: "40.7128°",
-        userLongitude: "74.0060°",
+        userLatitude: "40.463667°",
+        userLongitude: "-3.74922°",
         dateCreated: Date.now(),
       })
   }
