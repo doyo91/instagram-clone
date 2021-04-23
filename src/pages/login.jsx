@@ -12,7 +12,7 @@ export default function Login() {
   const [error, setError] = useState("")
 
   useEffect(() => {
-    document.title = "Login - Instagram"
+    document.title = "Iniciar Sesión • Instagram"
   }, [])
 
   const isInvalid =
@@ -37,45 +37,51 @@ export default function Login() {
       </div>
       <div className="flex flex-col w-2/5">
         <div className="flex flex-col items-center bg-white p-4 border border-gray-primary mb-4">
-          <h1 className="flex justify-cetner w-full">
+          <h1 className="flex justify-center w-full mb-4">
             <img
               className="mt-2 w-6/12 mb-4"
               src="/images/logo.png"
               alt="Instagram logo"
             />
           </h1>
-          {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
 
           <form onSubmit={handleLogin} method="POST">
             <input
               type="text"
               aria-label="Introduce correo electrónico"
               placeholder="Correo electrónico"
-              className="text-sm text-gray-base w-full h-2 border-gray-primary rounded mr-3 py-5 px-4 mb-2"
+              className="text-sm text-gray-base w-full border h-2 border-gray-primary rounded mr-3 py-5 px-4 mb-2"
               onChange={({ target }) => setEmailAddress(target.value)}
+              value={emailAddress}
             />
             <input
               type="password"
               aria-label="Introduce contraseña"
               placeholder="Contraseña"
-              className="text-sm text-gray-base w-full h-2 border-gray-primary rounded mr-3 py-5 px-4 mb-2"
+              className="text-sm text-gray-base w-full border h-2 border-gray-primary rounded mr-3 py-5 px-4 mb-2"
               onChange={({ target }) => setPassword(target.value)}
+              value={password}
             />
 
             <button
               disabled={isInvalid}
               type="submit"
-              className={`bg-blue-medium text-white w-full rounded h-8 font-bold
+              className={`bg-blue-medium text-white w-full rounded h-8 mt-2 font-bold
           ${isInvalid && " opacity-50"}`}
             >
               Iniciar Sesión
             </button>
+            {error && (
+              <p className="mt-4 mb-4 text-center text-xs text-red-primary">
+                {error}
+              </p>
+            )}
           </form>
         </div>
         <div className="flex justify-center items-center flex-col w-full bg-white p-4 border border-gray-primary">
           <p className="text-sm">
             ¿No tienes una cuenta? {` `}
-            <Link to="/signup" className=" text-blue-medium">
+            <Link to={ROUTES.SIGN_UP} className=" text-blue-medium">
               Regístrate
             </Link>
           </p>
