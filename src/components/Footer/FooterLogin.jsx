@@ -74,6 +74,7 @@ export default function FooterLogin({ showTopics = true }) {
         <div>
           {links.map((link) => (
             <a
+              key={link.id}
               className="text-gray-base font-light text-xs p-2 mb-4"
               href={link.url}
               target="_blank"
@@ -87,6 +88,7 @@ export default function FooterLogin({ showTopics = true }) {
           <div>
             {topics.map((topic) => (
               <a
+                key={topic.id}
                 className="text-gray-base font-light text-xs p-2 mb-4"
                 href={topic.url}
                 target="_blank"

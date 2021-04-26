@@ -4,10 +4,10 @@ import * as ROUTES from "./constants/routes"
 import useAtuhListener from "./hooks/useAuthListener"
 import UserContext from "./context/user"
 
-const Login = lazy(() => import("./pages/login"))
-const Signup = lazy(() => import("./pages/signup"))
-const Dashboard = lazy(() => import("./pages/dashboard"))
-const NotFound = lazy(() => import("./pages/not-found"))
+const Login = lazy(() => import("./pages/Login"))
+const Signup = lazy(() => import("./pages/SignUp"))
+const Dashboard = lazy(() => import("./pages/Dashboard"))
+const NotFound = lazy(() => import("./pages/NotFound"))
 
 export default function App() {
   const { user } = useAtuhListener()
