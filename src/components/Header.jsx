@@ -18,7 +18,7 @@ export default function Header() {
               <Link to={ROUTES.DASHBOARD} aria-label="Instagram logo">
                 <img
                   src="/images/logo.png"
-                  alt="Instagram logo image"
+                  alt="Instagram logo"
                   className="mt-2 w-6/12"
                 />
               </Link>

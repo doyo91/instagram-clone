@@ -1,3 +1,7 @@
 export default function Timeline() {
-  return <div>Timeline</div>
+  return (
+    <div className="container col-span-2">
+      <p>Tiemspam</p>
+    </div>
+  )
 }

@@ -25,3 +25,49 @@ export async function getUserByUserId(userId) {
 
   return user
 }
+
+// get suggested profiles
+export async function getSuggestedProfiles(userId, following) {
+  const result = await firebase.firestore().collection("users").limit(10).get()
+
+  return result.docs
+    .map((user) => ({ ...user.data(), docId: user.id }))
+    .filter(
+      (profile) =>
+        profile.userId !== userId && !following.includes(profile.userId)
+    )
+}
+
+// add or remove from following array
+export async function updateLoggedInUserFollowing(
+  loggedInUserDocId, // currently logged in user document id
+  profileId, // the user that me requests to follow
+  isFollowingProfile // I follow it or not (bool)
+) {
+  return firebase
+    .firestore()
+    .collection("users")
+    .doc(loggedInUserDocId)
+    .update({
+      following: isFollowingProfile
+        ? FieldValue.arrayRemove(profileId)
+        : FieldValue.arrayUnion(profileId),
+    })
+}
+
+// add or remove from followers array
+export async function updateFollowedUserFollowers(
+  suggestedProfileDocId,
+  loggedInUserDocId,
+  isFollowingProfile
+) {
+  return firebase
+    .firestore()
+    .collection("users")
+    .doc(suggestedProfileDocId)
+    .update({
+      followers: isFollowingProfile
+        ? FieldValue.arrayRemove(loggedInUserDocId)
+        : FieldValue.arrayUnion(loggedInUserDocId),
+    })
+}

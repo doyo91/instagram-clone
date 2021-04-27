@@ -11,7 +11,7 @@ export default function AppStore() {
           <img
             className="w-32 mr-1"
             src="/images/apple-store.png"
-            alt="Apple Store image"
+            alt="Apple Store"
           />
         </a>
         <a
@@ -22,7 +22,7 @@ export default function AppStore() {
           <img
             className="w-32 ml-1"
             src="/images/google-play.png"
-            alt="Google Store image"
+            alt="Google Store"
           />
         </a>
       </div>

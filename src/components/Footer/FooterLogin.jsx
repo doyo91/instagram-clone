@@ -1,3 +1,5 @@
+import PropTypes from "prop-types"
+
 const links = [
   { id: 1, name: "Información", url: "https://about.instagram.com/" },
   { id: 2, name: "Blog", url: "https://about.instagram.com/blog" },
@@ -106,4 +108,8 @@ export default function FooterLogin({ showTopics = true }) {
       </div>
     </footer>
   )
+}
+
+FooterLogin.propTypes = {
+  showTopics: PropTypes.bool,
 }
