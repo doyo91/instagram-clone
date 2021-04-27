@@ -10,7 +10,7 @@ export default function Signup() {
   const { firebase } = useContext(FirebaseContext)
 
   const [username, setUsername] = useState("")
-  const [fullname, setFullname] = useState("")
+  const [fullName, setFullName] = useState("")
   const [emailAddress, setEmailAddress] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
@@ -31,7 +31,7 @@ export default function Signup() {
     password.length < 6 ||
     emailAddress === "" ||
     username === "" ||
-    fullname === ""
+    fullName === ""
 
   const handleSignup = async (event) => {
     event.preventDefault()
@@ -44,14 +44,14 @@ export default function Signup() {
           .createUserWithEmailAndPassword(emailAddress, password)
         // Authentication firebase
         await createUserResult.user.updateProfile({
-          displayname: username,
+          displayName: username,
         })
 
         // firebase user collection (create a document)
         await firebase.firestore().collection("users").add({
           userId: createUserResult.user.uid,
           username: username.toLowerCase(),
-          fullname,
+          fullName,
           emailAddress: emailAddress.toLowerCase(),
           following: [],
           dateCreated: Date.now(),
@@ -60,7 +60,7 @@ export default function Signup() {
         history.push(ROUTES.DASHBOARD)
       } catch (error) {
         setEmailAddress("")
-        setFullname("")
+        setFullName("")
         setUsername("")
         setPassword("")
         setError(error.message)
@@ -106,8 +106,8 @@ export default function Signup() {
                 aria-label="Introduce nombre completo"
                 placeholder="Nombre completo"
                 className="text-sm text-gray-base w-full border h-2 border-gray-primary rounded mr-3 py-5 px-4 mb-2"
-                onChange={({ target }) => setFullname(target.value)}
-                value={fullname}
+                onChange={({ target }) => setFullName(target.value)}
+                value={fullName}
               />
               <input
                 type="text"

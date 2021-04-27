@@ -6,12 +6,12 @@ import Suggestions from "./Suggestions"
 
 export default function Sidebar() {
   const {
-    user: { docId, fullname, username, userId, following },
+    user: { docId, fullName, username, userId, following },
   } = useUser()
 
   return (
     <aside className="p-4">
-      <User username={username} fullName={fullname} />
+      <User username={username} fullName={fullName} />
       <Suggestions
         userId={userId}
         following={following}
@@ -20,5 +20,3 @@ export default function Sidebar() {
     </aside>
   )
 }
-
-// Sidebar.whyDidYouRender = true

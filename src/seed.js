@@ -69,7 +69,7 @@ export function seedDatabase(firebase) {
       .add({
         photoId: i,
         userId: "2",
-        imageSrc: `/images/users/raphael/${i}.jpg`,
+        imageSrc: `/images/users/li/${i}.jpg`,
         caption: `foto: ${i}.jpg`,
         likes: [],
         comments: [
