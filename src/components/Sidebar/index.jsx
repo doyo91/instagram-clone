@@ -10,7 +10,7 @@ export default function Sidebar() {
   } = useUser()
 
   return (
-    <aside className="p-4">
+    <aside className="p-4 ">
       <User username={username} fullName={fullName} />
       <Suggestions
         userId={userId}

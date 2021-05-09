@@ -6,7 +6,7 @@ import {
   Switch,
 } from "react-router-dom"
 import * as ROUTES from "./constants/routes"
-import useAtuhListener from "./hooks/useAuthListener"
+import useAuthListener from "./hooks/useAuthListener"
 import UserContext from "./context/user"
 
 import ProtectedRoute from "./helpers/protectedRoute"
@@ -19,7 +19,7 @@ const Profile = lazy(() => import("./pages/Profile"))
 const NotFound = lazy(() => import("./pages/NotFound"))
 
 export default function App() {
-  const { user } = useAtuhListener()
+  const { user } = useAuthListener()
   return (
     <UserContext.Provider value={{ user }}>
       <Router>
@@ -40,7 +40,7 @@ export default function App() {
               <Signup />
             </IsUserLoggedIn>
             <Route path={ROUTES.PROFILE} component={Profile} />
-            <ProtectedRoute user={user} path={ROUTES.DASHBOARD}>
+            <ProtectedRoute user={user} path={ROUTES.DASHBOARD} exact>
               <Dashboard />
             </ProtectedRoute>
             <Route component={NotFound} />

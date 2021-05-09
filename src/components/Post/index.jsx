@@ -15,7 +15,11 @@ export default function Post({ content }) {
   return (
     <article className="rounded col-span-4 border bg-white border-gray-primary mb-12">
       <Header username={content.username} />
-      <Picture src={content.imageSrc} caption={content.caption} />
+      <Picture
+        docId={content.docId}
+        src={content.imageSrc}
+        caption={content.caption}
+      />
       <Actions
         docId={content.docId}
         totalLikes={content.likes.length}

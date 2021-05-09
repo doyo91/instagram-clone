@@ -1,4 +1,6 @@
 import { useEffect } from "react"
+import { Link } from "react-router-dom"
+import * as ROUTES from "../constants/routes"
 
 export default function NotFound() {
   useEffect(() => {
@@ -13,7 +15,11 @@ export default function NotFound() {
         </h2>
         <p className="text-center my-4">
           Es posible que el enlace que has seguido sea incorrecto o que se haya
-          eliminado la página. Volver a Instagram.
+          eliminado la página.
+          <Link className="text-blue-medium" to={ROUTES.DASHBOARD}>
+            {" "}
+            Volver a Instagram.
+          </Link>
         </p>
       </div>
     </div>
