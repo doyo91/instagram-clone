@@ -7,11 +7,11 @@ import UserContext from "./context/user"
 import ProtectedRoute from "./helpers/protectedRoute"
 import IsUserLoggedIn from "./helpers/isUserLoggedIn"
 
-const Dashboard = lazy(() => import("src/pages/Dashboard"))
-const Login = lazy(() => import("src/pages/Login"))
-const Signup = lazy(() => import("src/pages/SignUp"))
-const Profile = lazy(() => import("src/pages/Profile"))
-const NotFound = lazy(() => import("src/pages/NotFound"))
+const Dashboard = lazy(() => import("src/pages/dashboard"))
+const Login = lazy(() => import("src/pages/login"))
+const Signup = lazy(() => import("src/pages/signUp"))
+const Profile = lazy(() => import("src/pages/profile"))
+const NotFound = lazy(() => import("src/pages/notFound"))
 
 export default function App() {
   const { user } = useAuthListener()
