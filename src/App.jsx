@@ -1,10 +1,5 @@
 import { lazy, Suspense } from "react"
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import * as ROUTES from "./constants/routes"
 import useAuthListener from "./hooks/useAuthListener"
 import UserContext from "./context/user"
@@ -23,7 +18,17 @@ export default function App() {
   return (
     <UserContext.Provider value={{ user }}>
       <Router>
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense
+          fallback={
+            <div className="w-100 h-100 flex justify-center items-center">
+              <img
+                src="/images/loading-logo.png"
+                alt="Instagram logo"
+                className="w-3"
+              />
+            </div>
+          }
+        >
           <Switch>
             <IsUserLoggedIn
               user={user}

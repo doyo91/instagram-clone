@@ -68,44 +68,42 @@ const topics = [
 
 export default function FooterLogin({ showTopics = true }) {
   return (
-    <footer className="w-full flex flex-col items-center justify-end text-center ">
+    <footer className="w-full flex flex-col items-center justify-end text-center">
       <div
-        className="
+        clasname="flex 
       "
       >
+        {links.map((link) => (
+          <a
+            key={link.id}
+            className="text-gray-base font-light text-xs p-2 "
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {link.name}
+          </a>
+        ))}
+      </div>
+      {showTopics && (
         <div>
-          {links.map((link) => (
+          {topics.map((topic) => (
             <a
-              key={link.id}
+              key={topic.id}
               className="text-gray-base font-light text-xs p-2 mb-4"
-              href={link.url}
+              href={topic.url}
               target="_blank"
               rel="noopener noreferrer"
             >
-              {link.name}
+              {topic.name}
             </a>
           ))}
         </div>
-        {showTopics && (
-          <div>
-            {topics.map((topic) => (
-              <a
-                key={topic.id}
-                className="text-gray-base font-light text-xs p-2 mb-4"
-                href={topic.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {topic.name}
-              </a>
-            ))}
-          </div>
-        )}
+      )}
 
-        <p className="text-gray-base font-light text-xs p-2 mt-4 mb-4">
-          Español (España) © 2021 Instagram from Facebook
-        </p>
-      </div>
+      <p className="text-gray-base font-light text-xs p-2 mt-4 mb-4">
+        Español (España) © 2021 Instagram from Facebook
+      </p>
     </footer>
   )
 }

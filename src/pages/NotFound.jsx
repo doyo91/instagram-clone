@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
+import { Header } from "../components"
 import * as ROUTES from "../constants/routes"
 
 export default function NotFound() {
@@ -9,6 +10,7 @@ export default function NotFound() {
 
   return (
     <div className=" bg-gray-background">
+      <Header />
       <div className="mx-auto max-w-screen-lg my-4 ">
         <h2 className="font-semibold text-xl text-center my-4">
           Esta página no está disponible.

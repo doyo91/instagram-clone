@@ -20,7 +20,7 @@ export default function AddComments({
     event.preventDefault()
 
     // new array, put the new comment and add the old comments
-    setComments([{ displayName, comment }, ...comments])
+    setComments([...comments, { displayName, comment }])
     setComment("")
 
     return firebase

@@ -27,7 +27,7 @@ export default function Profile({ user }) {
       })
     }
     user?.username && getProfileInfoAndPhotos()
-  }, [user?.username])
+  }, [user.username, user])
 
   return (
     <>
